@@ -1,0 +1,18 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../../../../svelte/src/App.svelte",
+    "../../../../../svelte/src/app/routing/Router.svelte",
+    "../../../../../svelte/src/app/component/Sidenav.svelte",
+    "../../../../../svelte/src/app/component/RouterLink.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\timport Router from './app/routing/Router.svelte';\n\timport Sidenav from './app/component/Sidenav.svelte';\n</script>\n\n<style>\n  .app-shell {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    display: flex;\n  }\n</style>\n\n<div class=\"app-shell\">\n  <Sidenav class=\"sidenav\" />\n  <Router />\n</div>",
+    "<script>\n  import { hash } from '../services/route.serv'\n  import Homepage from '../pages/Homepage.svelte';\n  import Notfound from '../pages/Notfound.svelte';\n\n  let value = Notfound;\n\n  hash.subscribe( valu => {\n    switch(valu) {\n      case '':\n        value = Homepage;\n        break;\n      default:\n        value = Notfound;\n    }\n  });\n</script>\n\n<style>\n  main {\n    flex-grow: 1;\n    background-color: var(--primary-color-2);\n    color: var(--second-color);\n    padding: 1rem;\n  }\n</style>\n\n<main>\n  <svelte:component this={value}/>\n</main>\n",
+    "<script>\n  import RouterLink from './RouterLink.svelte'\n</script>\n\n<style>\n  nav {\n    flex-basis: 10rem;\n    background-color: var(--primary-color);\n    color: var(--second-color-4);\n    padding: 1rem; \n  }\n\n  nav ul {\n    list-style: none;\n  }\n\n  nav ul li {\n    padding: .5rem 0;\n  }\n</style>\n\n<nav>\n  <h1>Sidenav</h1>\n  <ul>\n    <li>\n      <RouterLink url=''>Homepage</RouterLink>\n    </li>\n    <li>\n      <RouterLink url='asas'>WrongPage</RouterLink>\n    </li>\n  </ul>\n</nav>",
+    "<script>\n  export let url;\n</script>\n\n<style>\n  a {\n    color: var(--second-color-4);\n  }  \n</style>\n\n<a href=\"#/{url}\">\n  <slot></slot>\n</a>"
+  ],
+  "names": [],
+  "mappings": "AAME,UAAU,cAAC,CAAC,AACV,QAAQ,CAAE,QAAQ,CAClB,GAAG,CAAE,CAAC,CACN,MAAM,CAAE,CAAC,CACT,IAAI,CAAE,CAAC,CACP,KAAK,CAAE,CAAC,CACR,OAAO,CAAE,IAAI,AACf,CAAC;ACMD,IAAI,eAAC,CAAC,AACJ,SAAS,CAAE,CAAC,CACZ,gBAAgB,CAAE,IAAI,iBAAiB,CAAC,CACxC,KAAK,CAAE,IAAI,cAAc,CAAC,CAC1B,OAAO,CAAE,IAAI,AACf,CAAC;ACnBD,GAAG,cAAC,CAAC,AACH,UAAU,CAAE,KAAK,CACjB,gBAAgB,CAAE,IAAI,eAAe,CAAC,CACtC,KAAK,CAAE,IAAI,gBAAgB,CAAC,CAC5B,OAAO,CAAE,IAAI,AACf,CAAC,AAED,iBAAG,CAAC,EAAE,cAAC,CAAC,AACN,UAAU,CAAE,IAAI,AAClB,CAAC,AAED,iBAAG,CAAC,EAAE,CAAC,EAAE,cAAC,CAAC,AACT,OAAO,CAAE,KAAK,CAAC,CAAC,AAClB,CAAC;ACbD,CAAC,eAAC,CAAC,AACD,KAAK,CAAE,IAAI,gBAAgB,CAAC,AAC9B,CAAC"
+}
