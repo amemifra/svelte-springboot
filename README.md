@@ -4,7 +4,8 @@ A simple web application build with Spring Boot And Svelte
 
 ## Frontend Compilation
 
-Open a terminal on ./svelte/ folder and launch `$ npm install` / `$ yarn`
+Open a terminal on `📂 ./svelte/` folder 
+and launch `$ npm install` / `$ yarn`
 to install dependencies
 
 To launch frontend compilation in development mode:
